@@ -4,11 +4,11 @@
 
 <!-- 🌸 HYPRLAND & CATPPUCCIN HEADER BANNER -->
 <a href="https://github.com/fr1ndz">
-  <img src="./assets/header.svg" width="100%" alt="Catppuccin Hyprland Header" />
+  <img src="./assets/header.svg?v=2" width="100%" alt="Catppuccin Hyprland Header" />
 </a>
 
 <!-- ✨ ANIMATED CATPPUCCIN DIVIDER -->
-<img src="./assets/divider.svg" width="100%" />
+<img src="./assets/divider.svg?v=2" width="100%" />
 
 <!-- 🎀 TYPING SVG INTRO -->
 <h1 align="center">
@@ -17,11 +17,11 @@
 
 <!-- 🐈 VSCODE-PETS CLONE: ANIMATED CAT SANCTUARY -->
 <p align="center">
-  <img src="./assets/cat-walk.svg" width="100%" alt="Catppuccin VSCode Pets Walking Cats" />
+  <img src="./assets/cat-walk.svg?v=2" width="100%" alt="Catppuccin VSCode Pets Walking Cats" />
 </p>
 
 <!-- 💫 ANIMATED DIVIDER -->
-<img src="./assets/divider.svg" width="100%" />
+<img src="./assets/divider.svg?v=2" width="100%" />
 
 <!-- 📸 PROFILE AVATAR & LIVE STATUS BADGES -->
 <p align="center">
@@ -38,7 +38,7 @@
 </p>
 
 <!-- ✨ ANIMATED DIVIDER -->
-<img src="./assets/divider.svg" width="100%" />
+<img src="./assets/divider.svg?v=2" width="100%" />
 
 <!-- 🖥️ TERMINAL VIEW (SYSTEM SPECS & FASTFETCH) -->
 <h3 align="left">
@@ -47,11 +47,11 @@
 </h3>
 
 <p align="center">
-  <img src="./assets/terminal.svg" width="100%" alt="Catppuccin Terminal Preview" />
+  <img src="./assets/terminal.svg?v=2" width="100%" alt="Catppuccin Terminal Preview" />
 </p>
 
 <!-- ✨ ANIMATED DIVIDER -->
-<img src="./assets/divider.svg" width="100%" />
+<img src="./assets/divider.svg?v=2" width="100%" />
 
 <!-- 🗨️ DISCORD PRESENCE & LANYARD STATUS -->
 <h3 align="left">
@@ -66,7 +66,7 @@
 </p>
 
 <!-- ✨ ANIMATED DIVIDER -->
-<img src="./assets/divider.svg" width="100%" />
+<img src="./assets/divider.svg?v=2" width="100%" />
 
 <!-- 🐍 GITHUB CONTRIBUTION SNAKE -->
 <h3 align="left">
@@ -83,7 +83,7 @@
 </p>
 
 <!-- ✨ ANIMATED DIVIDER -->
-<img src="./assets/divider.svg" width="100%" />
+<img src="./assets/divider.svg?v=2" width="100%" />
 
 <!-- 📊 GITHUB STATS SECTION -->
 <h3 align="left">
@@ -107,7 +107,7 @@
 </p>
 
 <!-- ✨ ANIMATED DIVIDER -->
-<img src="./assets/divider.svg" width="100%" />
+<img src="./assets/divider.svg?v=2" width="100%" />
 
 <!-- 🛠️ TECH STACK SECTION -->
 <h3 align="left">
@@ -157,7 +157,7 @@
 </p>
 
 <!-- ✨ ANIMATED DIVIDER -->
-<img src="./assets/divider.svg" width="100%" />
+<img src="./assets/divider.svg?v=2" width="100%" />
 
 <!-- 🎮 INTERESTS & AESTHETICS -->
 <h3 align="left">
@@ -193,7 +193,7 @@
 </p>
 
 <!-- ✨ ANIMATED DIVIDER -->
-<img src="./assets/divider.svg" width="100%" />
+<img src="./assets/divider.svg?v=2" width="100%" />
 
 <!-- 🏆 ACHIEVEMENTS / STREAK STATS -->
 <h3 align="left">
@@ -208,7 +208,7 @@
 </p>
 
 <!-- ✨ ANIMATED DIVIDER -->
-<img src="./assets/divider.svg" width="100%" />
+<img src="./assets/divider.svg?v=2" width="100%" />
 
 <!-- 📬 CONNECT SECTION -->
 <h3 align="left">
@@ -233,7 +233,7 @@
 
 <!-- 🌙 FOOTER BANNER -->
 <p align="center">
-  <img src="./assets/footer.svg" width="100%" alt="Catppuccin Footer Banner" />
+  <img src="./assets/footer.svg?v=2" width="100%" alt="Catppuccin Footer Banner" />
 </p>
 
 </div>
