@@ -20,30 +20,46 @@
   <style>
     @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@600;800&amp;display=swap');
 
-    /* Walking Cat 1 Movement Across Floor */
-    .cat1-group {
+    /* --- CAT 1 (Mauve Cat) Movement --- */
+    .cat1-mover {
       animation: cat1Walk 14s linear infinite;
     }
-
     @keyframes cat1Walk {
       0% { transform: translateX(-60px); }
-      48% { transform: translateX(860px) scaleX(1); }
-      49% { transform: translateX(860px) scaleX(-1); }
-      99% { transform: translateX(-60px) scaleX(-1); }
-      100% { transform: translateX(-60px) scaleX(1); }
+      49.9% { transform: translateX(860px); }
+      50% { transform: translateX(860px); }
+      99.9% { transform: translateX(-60px); }
+      100% { transform: translateX(-60px); }
     }
 
-    /* Walking Cat 2 Movement Across Floor */
-    .cat2-group {
+    .cat1-flipper {
+      animation: cat1Flip 14s step-end infinite;
+    }
+    @keyframes cat1Flip {
+      0% { transform: scaleX(1); }
+      50% { transform: scaleX(-1); }
+      100% { transform: scaleX(1); }
+    }
+
+    /* --- CAT 2 (Peach Cat) Movement --- */
+    .cat2-mover {
       animation: cat2Walk 18s linear 2s infinite;
     }
-
     @keyframes cat2Walk {
-      0% { transform: translateX(900px) scaleX(-1); }
-      48% { transform: translateX(-70px) scaleX(-1); }
-      49% { transform: translateX(-70px) scaleX(1); }
-      99% { transform: translateX(900px) scaleX(1); }
-      100% { transform: translateX(900px) scaleX(-1); }
+      0% { transform: translateX(880px); }
+      49.9% { transform: translateX(-70px); }
+      50% { transform: translateX(-70px); }
+      99.9% { transform: translateX(880px); }
+      100% { transform: translateX(880px); }
+    }
+
+    .cat2-flipper {
+      animation: cat2Flip 18s step-end 2s infinite;
+    }
+    @keyframes cat2Flip {
+      0% { transform: scaleX(1); }      /* Drawn facing Left -> moves right-to-left */
+      50% { transform: scaleX(-1); }    /* Flipped facing Right -> moves left-to-right */
+      100% { transform: scaleX(1); }
     }
 
     .cat2-body-bounce {
@@ -51,10 +67,10 @@
     }
     @keyframes catBounce {
       0% { transform: translateY(0px); }
-      100% { transform: translateY(-4px); }
+      100% { transform: translateY(-2px); }
     }
 
-    /* Sleeping Cat Snoring z Z z */
+    /* Snoring z Z z */
     .snore-z1 { animation: floatZ 3s ease-out infinite; }
     .snore-z2 { animation: floatZ 3s ease-out 1s infinite; }
     .snore-z3 { animation: floatZ 3s ease-out 2s infinite; }
@@ -65,15 +81,15 @@
       100% { opacity: 0; transform: translate(16px, -24px) scale(1.3); }
     }
 
-    /* Laser Pointer Toy */
+    /* Laser Toy */
     .laser-dot {
       animation: laserMove 8s ease-in-out infinite alternate;
     }
     @keyframes laserMove {
-      0% { transform: translate(100px, 92px); }
-      30% { transform: translate(350px, 88px); }
+      0% { transform: translate(100px, 94px); }
+      30% { transform: translate(350px, 92px); }
       60% { transform: translate(600px, 94px); }
-      100% { transform: translate(780px, 90px); }
+      100% { transform: translate(780px, 92px); }
     }
 
     .pet-label {
@@ -87,10 +103,10 @@
   <!-- Container Box -->
   <rect width="850" height="120" rx="14" fill="url(#boxBg)" stroke="#313244" stroke-width="1.5" />
 
-  <!-- Ground Line -->
+  <!-- Ground Line (y = 96) -->
   <line x1="20" y1="96" x2="830" y2="96" stroke="url(#groundGrad)" stroke-width="3" stroke-linecap="round" filter="url(#glow)" />
   
-  <!-- Floor Flowers -->
+  <!-- Floor Decor -->
   <g fill="#f5c2e7" opacity="0.5">
     <circle cx="120" cy="96" r="3" />
     <circle cx="280" cy="96" r="2.5" />
@@ -109,114 +125,93 @@
   <!-- Laser Pointer Toy -->
   <circle class="laser-dot" r="4" fill="#f38ba8" filter="url(#glow)" />
 
-  <!-- ==================== CAT 1: MOCHA MAUVE CAT (WALKING) ==================== -->
-  <g class="cat1-group" transform="translate(0, 0)">
-    <g transform="translate(0, 68)">
+  <!-- ==================== CAT 1: MOCHA MAUVE CAT (FACING RIGHT INITIALLY) ==================== -->
+  <g class="cat1-mover">
+    <g class="cat1-flipper">
+      <g transform="translate(0, 68)">
 
-      <!-- Tail (Solidly Anchored at (-14, 8)) -->
-      <g transform="translate(-14, 8)">
-        <g>
-          <animateTransform attributeName="transform" type="rotate" values="0 0 0; 18 0 0; 0 0 0" dur="1.2s" repeatCount="indefinite" />
-          <path d="M 0 0 C -6 -6, -10 -14, -2 -20" stroke="#cba6f7" stroke-width="4" fill="none" stroke-linecap="round" />
+        <!-- Tail at back (-14, 8) -->
+        <g transform="translate(-14, 8)">
+          <g>
+            <animateTransform attributeName="transform" type="rotate" values="0 0 0; 18 0 0; 0 0 0" dur="1.2s" repeatCount="indefinite" />
+            <path d="M 0 0 C -6 -6, -10 -14, -2 -20" stroke="#cba6f7" stroke-width="4" fill="none" stroke-linecap="round" />
+          </g>
         </g>
-      </g>
 
-      <!-- Back Left Leg -->
-      <g transform="translate(-8, 16)">
-        <g>
-          <animateTransform attributeName="transform" type="rotate" values="-18 0 0; 18 0 0; -18 0 0" dur="0.4s" repeatCount="indefinite" />
-          <line x1="0" y1="0" x2="0" y2="12" stroke="#b4befe" stroke-width="3.5" stroke-linecap="round" />
+        <!-- Legs (Feet touch y=96) -->
+        <g transform="translate(-8, 16)">
+          <g><animateTransform attributeName="transform" type="rotate" values="-18 0 0; 18 0 0; -18 0 0" dur="0.4s" repeatCount="indefinite" /><line x1="0" y1="0" x2="0" y2="12" stroke="#b4befe" stroke-width="3.5" stroke-linecap="round" /></g>
         </g>
-      </g>
-
-      <!-- Back Right Leg -->
-      <g transform="translate(8, 16)">
-        <g>
-          <animateTransform attributeName="transform" type="rotate" values="18 0 0; -18 0 0; 18 0 0" dur="0.4s" repeatCount="indefinite" />
-          <line x1="0" y1="0" x2="0" y2="12" stroke="#b4befe" stroke-width="3.5" stroke-linecap="round" />
+        <g transform="translate(8, 16)">
+          <g><animateTransform attributeName="transform" type="rotate" values="18 0 0; -18 0 0; 18 0 0" dur="0.4s" repeatCount="indefinite" /><line x1="0" y1="0" x2="0" y2="12" stroke="#b4befe" stroke-width="3.5" stroke-linecap="round" /></g>
         </g>
-      </g>
 
-      <!-- Body -->
-      <ellipse cx="0" cy="10" rx="16" ry="11" fill="#cba6f7" />
+        <!-- Body -->
+        <ellipse cx="0" cy="10" rx="16" ry="11" fill="#cba6f7" />
 
-      <!-- Front Left Leg -->
-      <g transform="translate(-10, 16)">
-        <g>
-          <animateTransform attributeName="transform" type="rotate" values="-18 0 0; 18 0 0; -18 0 0" dur="0.4s" repeatCount="indefinite" />
-          <line x1="0" y1="0" x2="0" y2="12" stroke="#cba6f7" stroke-width="3.5" stroke-linecap="round" />
+        <g transform="translate(-10, 16)">
+          <g><animateTransform attributeName="transform" type="rotate" values="-18 0 0; 18 0 0; -18 0 0" dur="0.4s" repeatCount="indefinite" /><line x1="0" y1="0" x2="0" y2="12" stroke="#cba6f7" stroke-width="3.5" stroke-linecap="round" /></g>
         </g>
-      </g>
-
-      <!-- Front Right Leg -->
-      <g transform="translate(10, 16)">
-        <g>
-          <animateTransform attributeName="transform" type="rotate" values="18 0 0; -18 0 0; 18 0 0" dur="0.4s" repeatCount="indefinite" />
-          <line x1="0" y1="0" x2="0" y2="12" stroke="#cba6f7" stroke-width="3.5" stroke-linecap="round" />
+        <g transform="translate(10, 16)">
+          <g><animateTransform attributeName="transform" type="rotate" values="18 0 0; -18 0 0; 18 0 0" dur="0.4s" repeatCount="indefinite" /><line x1="0" y1="0" x2="0" y2="12" stroke="#cba6f7" stroke-width="3.5" stroke-linecap="round" /></g>
         </g>
-      </g>
 
-      <!-- Head (Solid & perfectly connected) -->
-      <g transform="translate(14, 2)">
-        <circle cx="0" cy="0" r="10" fill="#cba6f7" />
-        
-        <!-- Ears -->
-        <polygon points="-7,-7 -3,-14 0,-7" fill="#f5c2e7" />
-        <polygon points="1,-7 5,-14 8,-7" fill="#f5c2e7" />
-        <polygon points="-6,-7 -3,-12 -1,-7" fill="#f38ba8" />
-        <polygon points="2,-7 5,-12 7,-7" fill="#f38ba8" />
-        
-        <!-- Eyes -->
-        <circle cx="3" cy="-1" r="1.5" fill="#11111b" />
-        <circle cx="7" cy="-1" r="1.5" fill="#11111b" />
-        <circle cx="3.5" cy="-1.5" r="0.5" fill="#ffffff" />
-        <circle cx="7.5" cy="-1.5" r="0.5" fill="#ffffff" />
-        
-        <!-- Nose -->
-        <polygon points="4.5,2 5.5,2 5,3" fill="#f38ba8" />
-        
-        <!-- Collar -->
-        <path d="M -5 7 Q 0 10 5 7" stroke="#fab387" stroke-width="2" fill="none" />
-        <circle cx="0" cy="9" r="2" fill="#f9e2af" />
+        <!-- Head on Right (x = +14) -->
+        <g transform="translate(14, 2)">
+          <circle cx="0" cy="0" r="10" fill="#cba6f7" />
+          <polygon points="-7,-7 -3,-14 0,-7" fill="#f5c2e7" />
+          <polygon points="1,-7 5,-14 8,-7" fill="#f5c2e7" />
+          <polygon points="-6,-7 -3,-12 -1,-7" fill="#f38ba8" />
+          <polygon points="2,-7 5,-12 7,-7" fill="#f38ba8" />
+          <circle cx="3" cy="-1" r="1.5" fill="#11111b" />
+          <circle cx="7" cy="-1" r="1.5" fill="#11111b" />
+          <circle cx="3.5" cy="-1.5" r="0.5" fill="#ffffff" />
+          <circle cx="7.5" cy="-1.5" r="0.5" fill="#ffffff" />
+          <polygon points="4.5,2 5.5,2 5,3" fill="#f38ba8" />
+          <path d="M -5 7 Q 0 10 5 7" stroke="#fab387" stroke-width="2" fill="none" />
+          <circle cx="0" cy="9" r="2" fill="#f9e2af" />
+        </g>
       </g>
     </g>
   </g>
 
-  <!-- ==================== CAT 2: PEACH MACCHIATO CAT (BOUNCY WALK) ==================== -->
-  <g class="cat2-group">
-    <g class="cat2-body-bounce" transform="translate(0, 68)">
-      
-      <!-- Tail (Solidly Anchored at (13, 8)) -->
-      <g transform="translate(13, 8)">
-        <g>
-          <animateTransform attributeName="transform" type="rotate" values="0 0 0; -18 0 0; 0 0 0" dur="1.2s" repeatCount="indefinite" />
-          <path d="M 0 0 C 6 -6, 10 -14, 2 -20" stroke="#fab387" stroke-width="4" fill="none" stroke-linecap="round" />
+  <!-- ==================== CAT 2: PEACH MACCHIATO CAT (FACING LEFT INITIALLY) ==================== -->
+  <g class="cat2-mover">
+    <g class="cat2-flipper">
+      <g class="cat2-body-bounce" transform="translate(0, 68)">
+        
+        <!-- Tail at back (Right side x = +13) -->
+        <g transform="translate(13, 8)">
+          <g>
+            <animateTransform attributeName="transform" type="rotate" values="0 0 0; -18 0 0; 0 0 0" dur="1.2s" repeatCount="indefinite" />
+            <path d="M 0 0 C 6 -6, 10 -14, 2 -20" stroke="#fab387" stroke-width="4" fill="none" stroke-linecap="round" />
+          </g>
         </g>
-      </g>
 
-      <!-- Legs -->
-      <g transform="translate(-10, 16)"><g><animateTransform attributeName="transform" type="rotate" values="-18 0 0; 18 0 0; -18 0 0" dur="0.4s" repeatCount="indefinite" /><line x1="0" y1="0" x2="0" y2="12" stroke="#fab387" stroke-width="3.5" stroke-linecap="round" /></g></g>
-      <g transform="translate(-4, 16)"><g><animateTransform attributeName="transform" type="rotate" values="18 0 0; -18 0 0; 18 0 0" dur="0.4s" repeatCount="indefinite" /><line x1="0" y1="0" x2="0" y2="12" stroke="#f9e2af" stroke-width="3.5" stroke-linecap="round" /></g></g>
-      <g transform="translate(4, 16)"><g><animateTransform attributeName="transform" type="rotate" values="-18 0 0; 18 0 0; -18 0 0" dur="0.4s" repeatCount="indefinite" /><line x1="0" y1="0" x2="0" y2="12" stroke="#fab387" stroke-width="3.5" stroke-linecap="round" /></g></g>
-      <g transform="translate(10, 16)"><g><animateTransform attributeName="transform" type="rotate" values="18 0 0; -18 0 0; 18 0 0" dur="0.4s" repeatCount="indefinite" /><line x1="0" y1="0" x2="0" y2="12" stroke="#f9e2af" stroke-width="3.5" stroke-linecap="round" /></g></g>
+        <!-- Legs (Feet touch y=96) -->
+        <g transform="translate(-10, 16)"><g><animateTransform attributeName="transform" type="rotate" values="-18 0 0; 18 0 0; -18 0 0" dur="0.4s" repeatCount="indefinite" /><line x1="0" y1="0" x2="0" y2="12" stroke="#fab387" stroke-width="3.5" stroke-linecap="round" /></g></g>
+        <g transform="translate(-4, 16)"><g><animateTransform attributeName="transform" type="rotate" values="18 0 0; -18 0 0; 18 0 0" dur="0.4s" repeatCount="indefinite" /><line x1="0" y1="0" x2="0" y2="12" stroke="#f9e2af" stroke-width="3.5" stroke-linecap="round" /></g></g>
+        <g transform="translate(4, 16)"><g><animateTransform attributeName="transform" type="rotate" values="-18 0 0; 18 0 0; -18 0 0" dur="0.4s" repeatCount="indefinite" /><line x1="0" y1="0" x2="0" y2="12" stroke="#fab387" stroke-width="3.5" stroke-linecap="round" /></g></g>
+        <g transform="translate(10, 16)"><g><animateTransform attributeName="transform" type="rotate" values="18 0 0; -18 0 0; 18 0 0" dur="0.4s" repeatCount="indefinite" /><line x1="0" y1="0" x2="0" y2="12" stroke="#f9e2af" stroke-width="3.5" stroke-linecap="round" /></g></g>
 
-      <!-- Body -->
-      <ellipse cx="0" cy="10" rx="15" ry="10" fill="#fab387" />
-      <ellipse cx="-2" cy="12" rx="8" ry="6" fill="#fff" opacity="0.8" />
+        <!-- Body -->
+        <ellipse cx="0" cy="10" rx="15" ry="10" fill="#fab387" />
+        <ellipse cx="-2" cy="12" rx="8" ry="6" fill="#fff" opacity="0.8" />
 
-      <!-- Head (Facing left) -->
-      <g transform="translate(-12, 2)">
-        <circle cx="0" cy="0" r="10" fill="#fab387" />
-        <polygon points="-8,-7 -5,-14 -1,-7" fill="#fab387" />
-        <polygon points="0,-7 3,-14 7,-7" fill="#fab387" />
-        <polygon points="-7,-7 -5,-12 -2,-7" fill="#f38ba8" />
-        <polygon points="1,-7 3,-12 6,-7" fill="#f38ba8" />
-        <path d="M -6 -1 Q -4 -4 -2 -1" stroke="#11111b" stroke-width="1.5" fill="none" />
-        <circle cx="-5" cy="-2" r="0.5" fill="#11111b" />
-        <circle cx="3" cy="-1" r="1.5" fill="#11111b" />
-        <circle cx="3.5" cy="-1.5" r="0.5" fill="#fff" />
-        <circle cx="-5" cy="3" r="2" fill="#f38ba8" opacity="0.5" />
-        <circle cx="4" cy="3" r="2" fill="#f38ba8" opacity="0.5" />
+        <!-- Head on Left (x = -12, facing left) -->
+        <g transform="translate(-12, 2)">
+          <circle cx="0" cy="0" r="10" fill="#fab387" />
+          <polygon points="-8,-7 -5,-14 -1,-7" fill="#fab387" />
+          <polygon points="0,-7 3,-14 7,-7" fill="#fab387" />
+          <polygon points="-7,-7 -5,-12 -2,-7" fill="#f38ba8" />
+          <polygon points="1,-7 3,-12 6,-7" fill="#f38ba8" />
+          <path d="M -6 -1 Q -4 -4 -2 -1" stroke="#11111b" stroke-width="1.5" fill="none" />
+          <circle cx="-5" cy="-2" r="0.5" fill="#11111b" />
+          <circle cx="-3" cy="-1" r="1.5" fill="#11111b" />
+          <circle cx="-3.5" cy="-1.5" r="0.5" fill="#fff" />
+          <circle cx="-5" cy="3" r="2" fill="#f38ba8" opacity="0.5" />
+          <circle cx="4" cy="3" r="2" fill="#f38ba8" opacity="0.5" />
+        </g>
       </g>
     </g>
   </g>
