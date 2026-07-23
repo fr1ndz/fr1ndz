@@ -43,15 +43,6 @@
       100% { transform: rotate(20deg); }
     }
 
-    .cat1-tail {
-      transform-origin: 0px 0px;
-      animation: tailWag1 1.2s ease-in-out infinite alternate;
-    }
-    @keyframes tailWag1 {
-      0% { transform: rotate(-10deg); }
-      100% { transform: rotate(25deg); }
-    }
-
     /* --- Walking Cat 2 (Peach Cat - Walks Right to Left & Bounces) --- */
     .cat2-group {
       animation: cat2Walk 18s linear 2s infinite;
@@ -132,11 +123,6 @@
   <!-- ==================== CAT 1: MOCHA MAUVE CAT (WALKING) ==================== -->
   <g class="cat1-group" transform="translate(0, 0)">
     <g transform="translate(0, 68)">
-      <!-- Tail -->
-      <g transform="translate(-14, 8)">
-        <path d="M 0 0 C -8 -12, -12 -18, -4 -24" stroke="#cba6f7" stroke-width="4" fill="none" stroke-linecap="round" class="cat1-tail" />
-      </g>
-
       <!-- Back Left Leg -->
       <g transform="translate(-8, 16)">
         <line x1="0" y1="0" x2="0" y2="12" stroke="#b4befe" stroke-width="3.5" stroke-linecap="round" class="cat1-leg-bl" />
@@ -144,6 +130,13 @@
       <!-- Back Right Leg -->
       <g transform="translate(8, 16)">
         <line x1="0" y1="0" x2="0" y2="12" stroke="#b4befe" stroke-width="3.5" stroke-linecap="round" class="cat1-leg-br" />
+      </g>
+
+      <!-- Tail Perfectly Anchored at (-14, 8) on body -->
+      <g transform="translate(-14, 8)">
+        <path d="M 0 0 C -6 -8, -10 -16, -2 -22" stroke="#cba6f7" stroke-width="4" fill="none" stroke-linecap="round">
+          <animateTransform attributeName="transform" type="rotate" values="0 0 0; 18 0 0; 0 0 0" dur="1.2s" repeatCount="indefinite" />
+        </path>
       </g>
 
       <!-- Body -->
@@ -184,16 +177,18 @@
   <!-- ==================== CAT 2: PEACH MACCHIATO CAT (BOUNCY WALK) ==================== -->
   <g class="cat2-group">
     <g class="cat2-body-bounce" transform="translate(0, 68)">
-      <!-- Tail -->
-      <g transform="translate(14, 8)">
-        <path d="M 0 0 C 8 -12, 12 -18, 4 -24" stroke="#fab387" stroke-width="4" fill="none" stroke-linecap="round" class="cat1-tail" />
-      </g>
-
       <!-- Legs -->
       <g transform="translate(-10, 16)"><line x1="0" y1="0" x2="0" y2="12" stroke="#fab387" stroke-width="3.5" stroke-linecap="round" class="cat1-leg-fl" /></g>
       <g transform="translate(-4, 16)"><line x1="0" y1="0" x2="0" y2="12" stroke="#f9e2af" stroke-width="3.5" stroke-linecap="round" class="cat1-leg-bl" /></g>
       <g transform="translate(4, 16)"><line x1="0" y1="0" x2="0" y2="12" stroke="#fab387" stroke-width="3.5" stroke-linecap="round" class="cat1-leg-fr" /></g>
       <g transform="translate(10, 16)"><line x1="0" y1="0" x2="0" y2="12" stroke="#f9e2af" stroke-width="3.5" stroke-linecap="round" class="cat1-leg-br" /></g>
+
+      <!-- Tail Perfectly Anchored at (13, 8) on body -->
+      <g transform="translate(13, 8)">
+        <path d="M 0 0 C 6 -8, 10 -16, 2 -22" stroke="#fab387" stroke-width="4" fill="none" stroke-linecap="round">
+          <animateTransform attributeName="transform" type="rotate" values="0 0 0; -18 0 0; 0 0 0" dur="1.2s" repeatCount="indefinite" />
+        </path>
+      </g>
 
       <!-- Body -->
       <ellipse cx="0" cy="10" rx="15" ry="10" fill="#fab387" />
@@ -234,7 +229,7 @@
     <polygon points="13,0 16,-6 18,2" fill="#f2cdcd" />
     <!-- Sleeping Eyes (Curved lines ^^) -->
     <path d="M 10 7 Q 12 9 14 7" stroke="#585b70" stroke-width="1.2" fill="none" />
-    <!-- Curved Tail wrapped around -->
+    <!-- Curved Tail wrapped around body -->
     <path d="M -16 10 Q -24 6 -14 -1" stroke="#f5e0dc" stroke-width="4.5" fill="none" stroke-linecap="round" />
 
     <!-- Animated Snoring 'z Z z' -->
