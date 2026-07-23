@@ -1,0 +1,160 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 420" width="100%" height="100%">
+  <defs>
+    <!-- Terminal Background Gradient -->
+    <linearGradient id="termBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e1e2e" opacity="0.97" />
+      <stop offset="100%" stop-color="#11111b" opacity="0.98" />
+    </linearGradient>
+
+    <!-- Border Glow Gradient -->
+    <linearGradient id="termBorder" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#cba6f7" stop-opacity="0.8" />
+      <stop offset="50%" stop-color="#f5c2e7" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#89b4fa" stop-opacity="0.8" />
+    </linearGradient>
+
+    <!-- Glow Filter -->
+    <filter id="termGlow">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,700;1,400&amp;display=swap');
+
+    .term-text {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .c-mauve { fill: #cba6f7; }
+    .c-pink { fill: #f5c2e7; }
+    .c-blue { fill: #89b4fa; }
+    .c-green { fill: #a6e3a1; }
+    .c-yellow { fill: #f9e2af; }
+    .c-peach { fill: #fab387; }
+    .c-red { fill: #f38ba8; }
+    .c-subtext { fill: #a6adc8; }
+    .c-text { fill: #cdd6f4; }
+    .c-overlay { fill: #585b70; }
+
+    /* Blinking Cursor */
+    .cursor {
+      animation: blink 1s step-end infinite;
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    /* Tab active */
+    .tab-active {
+      fill: #313244;
+      stroke: #cba6f7;
+      stroke-width: 1;
+    }
+  </style>
+
+  <!-- Outer Glow Shadow -->
+  <rect x="5" y="5" width="840" height="410" rx="14" fill="none" stroke="url(#termBorder)" stroke-width="2" filter="url(#termGlow)" />
+
+  <!-- Main Window -->
+  <rect x="5" y="5" width="840" height="410" rx="14" fill="url(#termBg)" stroke="url(#termBorder)" stroke-width="1.5" />
+
+  <!-- Header Bar -->
+  <path d="M 5 19 A 14 14 0 0 1 19 5 L 831 5 A 14 14 0 0 1 845 19 L 845 42 L 5 42 Z" fill="#181825" />
+  <line x1="5" y1="42" x2="845" y2="42" stroke="#313244" stroke-width="1" />
+
+  <!-- Window Buttons -->
+  <circle cx="28" cy="24" r="6" fill="#f38ba8" />
+  <circle cx="48" cy="24" r="6" fill="#f9e2af" />
+  <circle cx="68" cy="24" r="6" fill="#a6e3a1" />
+
+  <!-- Tab 1 -->
+  <rect x="95" y="12" width="160" height="30" rx="6" class="tab-active" />
+  <text x="175" y="31" class="term-text c-mauve" font-weight="bold" text-anchor="middle">󰅍 artem@hyprland</text>
+
+  <!-- Tab 2 (Inactive) -->
+  <rect x="262" y="12" width="120" height="30" rx="6" fill="#1e1e2e" stroke="#313244" />
+  <text x="322" y="31" class="term-text c-subtext" text-anchor="middle">🦀 cargo watch</text>
+
+  <!-- Right side header label -->
+  <text x="825" y="30" class="term-text c-overlay" text-anchor="end" font-size="11">kitty - 80x24</text>
+
+  <!-- Terminal Content Body -->
+  <g transform="translate(25, 70)" class="term-text">
+    
+    <!-- Command 1 -->
+    <text y="0">
+      <tspan class="c-green" font-weight="bold">artem@hyprland</tspan>:<tspan class="c-blue" font-weight="bold">~</tspan><tspan class="c-pink">$ </tspan><tspan class="c-text">fastfetch --config profile.jsonc</tspan>
+    </text>
+
+    <!-- ASCII Cat Mascot & Fastfetch Info Grid -->
+    <g transform="translate(0, 25)">
+      <!-- Left side: Cat ASCII Art -->
+      <g class="c-mauve" font-weight="bold">
+        <text y="0">   /\_/\  </text>
+        <text y="18">  ( o.o ) </text>
+        <text y="36">   > ^ <  </text>
+        <text y="54">  /  ~  \ </text>
+        <text y="72"> (_______)</text>
+        <text y="90">  ||   || </text>
+      </g>
+      <g class="c-pink" transform="translate(0, 110)">
+        <text y="0"> 🐾 Catppuccin</text>
+        <text y="18">  Mocha Theme</text>
+      </g>
+
+      <!-- Right side: System Specs (Fastfetch) -->
+      <g transform="translate(160, 0)">
+        <text y="0"><tspan class="c-mauve" font-weight="bold">OS         </tspan><tspan class="c-subtext">➜ </tspan><tspan class="c-text">Arch Linux x86_64 (Hyprland Wayland)</tspan></text>
+        <text y="18"><tspan class="c-pink" font-weight="bold">Host       </tspan><tspan class="c-subtext">➜ </tspan><tspan class="c-text">Custom AI &amp; Systems Workstation</tspan></text>
+        <text y="36"><tspan class="c-blue" font-weight="bold">Kernel     </tspan><tspan class="c-subtext">➜ </tspan><tspan class="c-text">6.10.2-zen1-1-zen (Real-Time Async)</tspan></text>
+        <text y="54"><tspan class="c-teal" font-weight="bold">Uptime     </tspan><tspan class="c-subtext">➜ </tspan><tspan class="c-text">42 days, 13 hours, 37 mins</tspan></text>
+        <text y="72"><tspan class="c-green" font-weight="bold">Shell      </tspan><tspan class="c-subtext">➜ </tspan><tspan class="c-text">zsh 5.9 (starship + catppuccin)</tspan></text>
+        <text y="90"><tspan class="c-yellow" font-weight="bold">Languages  </tspan><tspan class="c-subtext">➜ </tspan><tspan class="c-text">Rust 🦀 • C# ⚡ • C/C++ 🛠 • Go 🌐</tspan></text>
+        <text y="108"><tspan class="c-peach" font-weight="bold">Focus      </tspan><tspan class="c-subtext">➜ </tspan><tspan class="c-text">AI Architecture &amp; Low-Level Performance</tspan></text>
+        <text y="126"><tspan class="c-red" font-weight="bold">Editor     </tspan><tspan class="c-subtext">➜ </tspan><tspan class="c-text">Neovim / VS Code + Catppuccin Mocha</tspan></text>
+
+        <!-- Color Palette Blocks -->
+        <g transform="translate(0, 145)">
+          <rect x="0" y="0" width="22" height="14" rx="3" fill="#f38ba8" />
+          <rect x="26" y="0" width="22" height="14" rx="3" fill="#fab387" />
+          <rect x="52" y="0" width="22" height="14" rx="3" fill="#f9e2af" />
+          <rect x="78" y="0" width="22" height="14" rx="3" fill="#a6e3a1" />
+          <rect x="104" y="0" width="22" height="14" rx="3" fill="#94e2d5" />
+          <rect x="130" y="0" width="22" height="14" rx="3" fill="#89b4fa" />
+          <rect x="156" y="0" width="22" height="14" rx="3" fill="#cba6f7" />
+          <rect x="182" y="0" width="22" height="14" rx="3" fill="#f5c2e7" />
+        </g>
+      </g>
+    </g>
+
+    <!-- Command 2 -->
+    <g transform="translate(0, 240)">
+      <text y="0">
+        <tspan class="c-green" font-weight="bold">artem@hyprland</tspan>:<tspan class="c-blue" font-weight="bold">~/projects</tspan><tspan class="c-pink">$ </tspan><tspan class="c-text">cargo build --release --bin neural-engine</tspan>
+      </text>
+      <text y="22" class="c-subtext">
+        <tspan class="c-blue">  Compiling</tspan> catppuccin-core v0.1.0 (https://github.com/fr1ndz/catppuccin)
+      </text>
+      <text y="42" class="c-subtext">
+        <tspan class="c-green">   Finished</tspan> release [optimized] target(s) in <tspan class="c-yellow">0.38s</tspan>
+      </text>
+      <text y="64">
+        <tspan class="c-green" font-weight="bold">artem@hyprland</tspan>:<tspan class="c-blue" font-weight="bold">~/projects</tspan><tspan class="c-pink">$ </tspan><tspan class="c-text">echo "Ready to build something amazing together!"</tspan>
+      </text>
+      <text y="86" class="c-mauve" font-weight="bold">
+        Ready to build something amazing together!
+      </text>
+      
+      <!-- Prompt with blinking cursor -->
+      <text y="108">
+        <tspan class="c-green" font-weight="bold">artem@hyprland</tspan>:<tspan class="c-blue" font-weight="bold">~</tspan><tspan class="c-pink">$ </tspan><tspan class="c-mauve cursor">█</tspan>
+      </text>
+    </g>
+
+  </g>
+</svg>

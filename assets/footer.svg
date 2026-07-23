@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 160" width="100%" height="100%">
+  <defs>
+    <linearGradient id="footerBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#181825" />
+      <stop offset="50%" stop-color="#1e1e2e" />
+      <stop offset="100%" stop-color="#11111b" />
+    </linearGradient>
+
+    <linearGradient id="moonGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f9e2af" />
+      <stop offset="100%" stop-color="#fab387" />
+    </linearGradient>
+
+    <linearGradient id="footerTextGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#cba6f7" />
+      <stop offset="50%" stop-color="#f5c2e7" />
+      <stop offset="100%" stop-color="#89b4fa" />
+    </linearGradient>
+
+    <filter id="moonGlow">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,700;1,400&amp;family=Outfit:wght@600;800&amp;display=swap');
+
+    .f-title {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 18px;
+      fill: url(#footerTextGrad);
+      letter-spacing: 1px;
+    }
+
+    .f-sub {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      fill: #a6adc8;
+    }
+
+    .star-twinkle {
+      animation: starFade 2.5s ease-in-out infinite alternate;
+    }
+    @keyframes starFade {
+      0% { opacity: 0.2; transform: scale(0.8); }
+      100% { opacity: 1; transform: scale(1.2); }
+    }
+
+    .float-moon {
+      animation: moonFloat 5s ease-in-out infinite alternate;
+    }
+    @keyframes moonFloat {
+      0% { transform: translateY(0px); }
+      100% { transform: translateY(-8px); }
+    }
+
+    .snore-z {
+      animation: snoreFloat 3s ease-out infinite;
+    }
+    @keyframes snoreFloat {
+      0% { opacity: 0; transform: translate(0,0) scale(0.6); }
+      50% { opacity: 1; transform: translate(6px, -10px) scale(1); }
+      100% { opacity: 0; transform: translate(12px, -20px) scale(1.2); }
+    }
+  </style>
+
+  <rect width="850" height="160" rx="14" fill="url(#footerBg)" stroke="#313244" stroke-width="1.5" />
+
+  <!-- Stars in background -->
+  <g fill="#f5c2e7">
+    <circle cx="100" cy="40" r="1.5" class="star-twinkle" />
+    <circle cx="220" cy="110" r="2" class="star-twinkle" />
+    <circle cx="350" cy="30" r="1.2" class="star-twinkle" />
+    <circle cx="500" cy="120" r="2" class="star-twinkle" />
+    <circle cx="640" cy="40" r="1.5" class="star-twinkle" />
+    <circle cx="750" cy="110" r="2" class="star-twinkle" />
+    <path d="M 160,80 Q 162,84 166,86 Q 162,88 160,92 Q 158,88 154,86 Q 158,84 160,80 Z" fill="#cba6f7" class="star-twinkle" />
+    <path d="M 700,70 Q 702,74 706,76 Q 702,78 700,82 Q 698,78 694,76 Q 698,74 700,70 Z" fill="#89b4fa" class="star-twinkle" />
+  </g>
+
+  <!-- Left Crescent Moon with Sleeping Cat -->
+  <g transform="translate(100, 75)" class="float-moon">
+    <!-- Glowing Crescent Moon -->
+    <path d="M -10 -35 A 32 32 0 1 0 35 10 A 25 25 0 1 1 -10 -35 Z" fill="url(#moonGrad)" filter="url(#moonGlow)" />
+    
+    <!-- Sleeping Cat nestled on moon -->
+    <g transform="translate(5, 5)">
+      <!-- Body -->
+      <ellipse cx="0" cy="0" rx="14" ry="9" fill="#cba6f7" />
+      <!-- Head -->
+      <circle cx="9" cy="-2" r="7" fill="#cba6f7" />
+      <!-- Ear -->
+      <polygon points="5,-7 8,-12 11,-6" fill="#f5c2e7" />
+      <!-- Tail -->
+      <path d="M -12 2 C -18 -4, -14 -12, -8 -10" stroke="#cba6f7" stroke-width="3.5" fill="none" stroke-linecap="round" />
+      <!-- Snoring z Z -->
+      <text x="16" y="-12" font-family="'JetBrains Mono', monospace" font-size="11" fill="#f5c2e7" class="snore-z">z Z</text>
+    </g>
+  </g>
+
+  <!-- Center Text -->
+  <g transform="translate(425, 70)" text-anchor="middle">
+    <text class="f-title" y="0">✦ CRAFTED WITH 💜 RUST &amp; CATPPUCCIN MOCHA ✦</text>
+    <text class="f-sub" y="30">「 🌙 眠らないコードを紡ぐ • Crafting Beauty in Logic 」</text>
+    <text class="f-sub" y="52" fill="#585b70" font-size="11">Designed for Artem Sklyaruk (@fr1ndz) • GitHub Profile v2.0</text>
+  </g>
+
+  <!-- Right Floating Paw Star -->
+  <g transform="translate(760, 75)" class="float-moon">
+    <circle cx="0" cy="0" r="28" fill="#313244" opacity="0.6" stroke="#f5c2e7" stroke-width="1" />
+    <text x="0" y="6" font-size="20" text-anchor="middle">🐾</text>
+  </g>
+</svg>

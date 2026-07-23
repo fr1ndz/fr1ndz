@@ -1,0 +1,248 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 120" width="100%" height="100%">
+  <defs>
+    <linearGradient id="groundGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#cba6f7" stop-opacity="0.3" />
+      <stop offset="50%" stop-color="#f5c2e7" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#89b4fa" stop-opacity="0.3" />
+    </linearGradient>
+
+    <linearGradient id="boxBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e1e2e" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#181825" stop-opacity="0.9" />
+    </linearGradient>
+
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@600;800&amp;display=swap');
+
+    /* --- Walking Cat 1 (Mauve Cat - Walks Left to Right) --- */
+    .cat1-group {
+      animation: cat1Walk 14s linear infinite;
+    }
+
+    @keyframes cat1Walk {
+      0% { transform: translateX(-60px); }
+      48% { transform: translateX(860px) scaleX(1); }
+      49% { transform: translateX(860px) scaleX(-1); }
+      99% { transform: translateX(-60px) scaleX(-1); }
+      100% { transform: translateX(-60px) scaleX(1); }
+    }
+
+    .cat1-leg-fl { animation: legMove1 0.4s ease-in-out infinite alternate; }
+    .cat1-leg-br { animation: legMove1 0.4s ease-in-out infinite alternate-reverse; }
+    .cat1-leg-fr { animation: legMove1 0.4s ease-in-out infinite alternate-reverse; }
+    .cat1-leg-bl { animation: legMove1 0.4s ease-in-out infinite alternate; }
+
+    @keyframes legMove1 {
+      0% { transform: rotate(-20deg); }
+      100% { transform: rotate(20deg); }
+    }
+
+    .cat1-tail {
+      transform-origin: 0px 0px;
+      animation: tailWag1 1.2s ease-in-out infinite alternate;
+    }
+    @keyframes tailWag1 {
+      0% { transform: rotate(-10deg); }
+      100% { transform: rotate(25deg); }
+    }
+
+    /* --- Walking Cat 2 (Peach Cat - Walks Right to Left & Bounces) --- */
+    .cat2-group {
+      animation: cat2Walk 18s linear 2s infinite;
+    }
+
+    @keyframes cat2Walk {
+      0% { transform: translateX(900px) scaleX(-1); }
+      48% { transform: translateX(-70px) scaleX(-1); }
+      49% { transform: translateX(-70px) scaleX(1); }
+      99% { transform: translateX(900px) scaleX(1); }
+      100% { transform: translateX(900px) scaleX(-1); }
+    }
+
+    .cat2-body-bounce {
+      animation: catBounce 0.35s ease-in-out infinite alternate;
+    }
+    @keyframes catBounce {
+      0% { transform: translateY(0px); }
+      100% { transform: translateY(-4px); }
+    }
+
+    /* --- Sleeping Cat (Center Resting) --- */
+    .snore-z1 { animation: floatZ 3s ease-out infinite; }
+    .snore-z2 { animation: floatZ 3s ease-out 1s infinite; }
+    .snore-z3 { animation: floatZ 3s ease-out 2s infinite; }
+
+    @keyframes floatZ {
+      0% { opacity: 0; transform: translate(0, 0) scale(0.6); }
+      50% { opacity: 1; transform: translate(8px, -12px) scale(1); }
+      100% { opacity: 0; transform: translate(16px, -24px) scale(1.3); }
+    }
+
+    /* Laser Dot / Toy */
+    .laser-dot {
+      animation: laserMove 8s ease-in-out infinite alternate;
+    }
+    @keyframes laserMove {
+      0% { transform: translate(100px, 92px); }
+      30% { transform: translate(350px, 88px); }
+      60% { transform: translate(600px, 94px); }
+      100% { transform: translate(780px, 90px); }
+    }
+
+    /* Pet Title */
+    .pet-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 800;
+      fill: #a6adc8;
+    }
+  </style>
+
+  <!-- Container Box -->
+  <rect width="850" height="120" rx="14" fill="url(#boxBg)" stroke="#313244" stroke-width="1.5" />
+
+  <!-- Ground Line (Pet Park Walking Bar) -->
+  <line x1="20" y1="96" x2="830" y2="96" stroke="url(#groundGrad)" stroke-width="3" stroke-linecap="round" filter="url(#glow)" />
+  
+  <!-- Decorative Flowers / Paws along the floor -->
+  <g fill="#f5c2e7" opacity="0.5">
+    <circle cx="120" cy="96" r="3" />
+    <circle cx="280" cy="96" r="2.5" />
+    <circle cx="480" cy="96" r="3" />
+    <circle cx="680" cy="96" r="2" />
+  </g>
+
+  <!-- Status / Header inside pet bar -->
+  <text x="30" y="28" class="pet-label">
+    <tspan fill="#f5c2e7">🐾 VSCODE-PETS CLONE</tspan> • <tspan fill="#cba6f7">Catppuccin Sanctuary</tspan>
+  </text>
+  <text x="820" y="28" class="pet-label" text-anchor="end" fill="#a6e3a1">
+    ● Active (3 Pets Online)
+  </text>
+
+  <!-- LASER POINTER TOY -->
+  <circle class="laser-dot" r="4" fill="#f38ba8" filter="url(#glow)" />
+
+  <!-- ==================== CAT 1: MOCHA MAUVE CAT (WALKING) ==================== -->
+  <g class="cat1-group" transform="translate(0, 0)">
+    <g transform="translate(0, 68)">
+      <!-- Tail -->
+      <g transform="translate(-14, 8)">
+        <path d="M 0 0 C -8 -12, -12 -18, -4 -24" stroke="#cba6f7" stroke-width="4" fill="none" stroke-linecap="round" class="cat1-tail" />
+      </g>
+
+      <!-- Back Left Leg -->
+      <g transform="translate(-8, 16)">
+        <line x1="0" y1="0" x2="0" y2="12" stroke="#b4befe" stroke-width="3.5" stroke-linecap="round" class="cat1-leg-bl" />
+      </g>
+      <!-- Back Right Leg -->
+      <g transform="translate(8, 16)">
+        <line x1="0" y1="0" x2="0" y2="12" stroke="#b4befe" stroke-width="3.5" stroke-linecap="round" class="cat1-leg-br" />
+      </g>
+
+      <!-- Body -->
+      <ellipse cx="0" cy="10" rx="16" ry="11" fill="#cba6f7" />
+
+      <!-- Front Left Leg -->
+      <g transform="translate(-10, 16)">
+        <line x1="0" y1="0" x2="0" y2="12" stroke="#cba6f7" stroke-width="3.5" stroke-linecap="round" class="cat1-leg-fl" />
+      </g>
+      <!-- Front Right Leg -->
+      <g transform="translate(10, 16)">
+        <line x1="0" y1="0" x2="0" y2="12" stroke="#cba6f7" stroke-width="3.5" stroke-linecap="round" class="cat1-leg-fr" />
+      </g>
+
+      <!-- Head -->
+      <g transform="translate(14, 2)">
+        <circle cx="0" cy="0" r="10" fill="#cba6f7" />
+        <!-- Ears -->
+        <polygon points="-7,-7 -3,-14 0,-7" fill="#f5c2e7" />
+        <polygon points="1,-7 5,-14 8,-7" fill="#f5c2e7" />
+        <!-- Inner ears -->
+        <polygon points="-6,-7 -3,-12 -1,-7" fill="#f38ba8" />
+        <polygon points="2,-7 5,-12 7,-7" fill="#f38ba8" />
+        <!-- Eyes (Happy open) -->
+        <circle cx="3" cy="-1" r="1.5" fill="#11111b" />
+        <circle cx="7" cy="-1" r="1.5" fill="#11111b" />
+        <circle cx="3.5" cy="-1.5" r="0.5" fill="#ffffff" />
+        <circle cx="7.5" cy="-1.5" r="0.5" fill="#ffffff" />
+        <!-- Nose -->
+        <polygon points="4.5,2 5.5,2 5,3" fill="#f38ba8" />
+        <!-- Collar + Bell -->
+        <path d="M -5 7 Q 0 10 5 7" stroke="#fab387" stroke-width="2" fill="none" />
+        <circle cx="0" cy="9" r="2" fill="#f9e2af" />
+      </g>
+    </g>
+  </g>
+
+  <!-- ==================== CAT 2: PEACH MACCHIATO CAT (BOUNCY WALK) ==================== -->
+  <g class="cat2-group">
+    <g class="cat2-body-bounce" transform="translate(0, 68)">
+      <!-- Tail -->
+      <g transform="translate(14, 8)">
+        <path d="M 0 0 C 8 -12, 12 -18, 4 -24" stroke="#fab387" stroke-width="4" fill="none" stroke-linecap="round" class="cat1-tail" />
+      </g>
+
+      <!-- Legs -->
+      <g transform="translate(-10, 16)"><line x1="0" y1="0" x2="0" y2="12" stroke="#fab387" stroke-width="3.5" stroke-linecap="round" class="cat1-leg-fl" /></g>
+      <g transform="translate(-4, 16)"><line x1="0" y1="0" x2="0" y2="12" stroke="#f9e2af" stroke-width="3.5" stroke-linecap="round" class="cat1-leg-bl" /></g>
+      <g transform="translate(4, 16)"><line x1="0" y1="0" x2="0" y2="12" stroke="#fab387" stroke-width="3.5" stroke-linecap="round" class="cat1-leg-fr" /></g>
+      <g transform="translate(10, 16)"><line x1="0" y1="0" x2="0" y2="12" stroke="#f9e2af" stroke-width="3.5" stroke-linecap="round" class="cat1-leg-br" /></g>
+
+      <!-- Body -->
+      <ellipse cx="0" cy="10" rx="15" ry="10" fill="#fab387" />
+      <!-- White tummy patch -->
+      <ellipse cx="-2" cy="12" rx="8" ry="6" fill="#fff" opacity="0.8" />
+
+      <!-- Head (Facing left) -->
+      <g transform="translate(-12, 2)">
+        <circle cx="0" cy="0" r="10" fill="#fab387" />
+        <!-- Ears -->
+        <polygon points="-8,-7 -5,-14 -1,-7" fill="#fab387" />
+        <polygon points="0,-7 3,-14 7,-7" fill="#fab387" />
+        <polygon points="-7,-7 -5,-12 -2,-7" fill="#f38ba8" />
+        <polygon points="1,-7 3,-12 6,-7" fill="#f38ba8" />
+        <!-- Winking Eye -->
+        <path d="M -6 -1 Q -4 -4 -2 -1" stroke="#11111b" stroke-width="1.5" fill="none" />
+        <circle cx="-5" cy="-2" r="0.5" fill="#11111b" />
+        <circle cx="3" cy="-1" r="1.5" fill="#11111b" />
+        <circle cx="3.5" cy="-1.5" r="0.5" fill="#fff" />
+        <!-- Cheeks -->
+        <circle cx="-5" cy="3" r="2" fill="#f38ba8" opacity="0.5" />
+        <circle cx="4" cy="3" r="2" fill="#f38ba8" opacity="0.5" />
+      </g>
+    </g>
+  </g>
+
+  <!-- ==================== SLEEPING CAT & CUSHION (CENTER) ==================== -->
+  <g transform="translate(425, 78)">
+    <!-- Cozy Cushion -->
+    <ellipse cx="0" cy="14" rx="32" ry="9" fill="#313244" stroke="#cba6f7" stroke-width="1.5" />
+    
+    <!-- Sleeping Cat Body (Rosewater/Latte) -->
+    <ellipse cx="0" cy="8" rx="18" ry="11" fill="#f5e0dc" />
+    <!-- Sleeping Head -->
+    <circle cx="12" cy="6" r="9" fill="#f5e0dc" />
+    <!-- Ears -->
+    <polygon points="7,0 10,-6 13,0" fill="#f2cdcd" />
+    <polygon points="13,0 16,-6 18,2" fill="#f2cdcd" />
+    <!-- Sleeping Eyes (Curved lines ^^) -->
+    <path d="M 10 7 Q 12 9 14 7" stroke="#585b70" stroke-width="1.2" fill="none" />
+    <!-- Curved Tail wrapped around -->
+    <path d="M -16 10 Q -24 6 -14 -1" stroke="#f5e0dc" stroke-width="4.5" fill="none" stroke-linecap="round" />
+
+    <!-- Animated Snoring 'z Z z' -->
+    <g transform="translate(18, -6)">
+      <text class="pet-label snore-z1" fill="#b4befe" font-size="10">z</text>
+      <text class="pet-label snore-z2" fill="#cba6f7" font-size="12">Z</text>
+      <text class="pet-label snore-z3" fill="#f5c2e7" font-size="14">z</text>
+    </g>
+  </g>
+
+</svg>
