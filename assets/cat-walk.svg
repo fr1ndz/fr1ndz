@@ -41,35 +41,6 @@
       100% { transform: scaleX(1); }
     }
 
-    /* --- CAT 2 (Peach Cat) Movement --- */
-    .cat2-mover {
-      animation: cat2Walk 18s linear 2s infinite;
-    }
-    @keyframes cat2Walk {
-      0% { transform: translateX(880px); }
-      49.9% { transform: translateX(-70px); }
-      50% { transform: translateX(-70px); }
-      99.9% { transform: translateX(880px); }
-      100% { transform: translateX(880px); }
-    }
-
-    .cat2-flipper {
-      animation: cat2Flip 18s step-end 2s infinite;
-    }
-    @keyframes cat2Flip {
-      0% { transform: scaleX(1); }      /* Drawn facing Left -> moves right-to-left */
-      50% { transform: scaleX(-1); }    /* Flipped facing Right -> moves left-to-right */
-      100% { transform: scaleX(1); }
-    }
-
-    .cat2-body-bounce {
-      animation: catBounce 0.35s ease-in-out infinite alternate;
-    }
-    @keyframes catBounce {
-      0% { transform: translateY(0px); }
-      100% { transform: translateY(-2px); }
-    }
-
     /* Snoring z Z z */
     .snore-z1 { animation: floatZ 3s ease-out infinite; }
     .snore-z2 { animation: floatZ 3s ease-out 1s infinite; }
@@ -119,13 +90,13 @@
     <tspan fill="#f5c2e7">🐾 VSCODE-PETS CLONE</tspan> • <tspan fill="#cba6f7">Catppuccin Sanctuary</tspan>
   </text>
   <text x="820" y="28" class="pet-label" text-anchor="end" fill="#a6e3a1">
-    ● Active (3 Pets Online)
+    ● Active (2 Pets Online)
   </text>
 
   <!-- Laser Pointer Toy -->
   <circle class="laser-dot" r="4" fill="#f38ba8" filter="url(#glow)" />
 
-  <!-- ==================== CAT 1: MOCHA MAUVE CAT (FACING RIGHT INITIALLY) ==================== -->
+  <!-- ==================== CAT 1: MOCHA MAUVE CAT (WALKING) ==================== -->
   <g class="cat1-mover">
     <g class="cat1-flipper">
       <g transform="translate(0, 68)">
@@ -170,47 +141,6 @@
           <polygon points="4.5,2 5.5,2 5,3" fill="#f38ba8" />
           <path d="M -5 7 Q 0 10 5 7" stroke="#fab387" stroke-width="2" fill="none" />
           <circle cx="0" cy="9" r="2" fill="#f9e2af" />
-        </g>
-      </g>
-    </g>
-  </g>
-
-  <!-- ==================== CAT 2: PEACH MACCHIATO CAT (FACING LEFT INITIALLY) ==================== -->
-  <g class="cat2-mover">
-    <g class="cat2-flipper">
-      <g class="cat2-body-bounce" transform="translate(0, 68)">
-        
-        <!-- Tail at back (Right side x = +13) -->
-        <g transform="translate(13, 8)">
-          <g>
-            <animateTransform attributeName="transform" type="rotate" values="0 0 0; -18 0 0; 0 0 0" dur="1.2s" repeatCount="indefinite" />
-            <path d="M 0 0 C 6 -6, 10 -14, 2 -20" stroke="#fab387" stroke-width="4" fill="none" stroke-linecap="round" />
-          </g>
-        </g>
-
-        <!-- Legs (Feet touch y=96) -->
-        <g transform="translate(-10, 16)"><g><animateTransform attributeName="transform" type="rotate" values="-18 0 0; 18 0 0; -18 0 0" dur="0.4s" repeatCount="indefinite" /><line x1="0" y1="0" x2="0" y2="12" stroke="#fab387" stroke-width="3.5" stroke-linecap="round" /></g></g>
-        <g transform="translate(-4, 16)"><g><animateTransform attributeName="transform" type="rotate" values="18 0 0; -18 0 0; 18 0 0" dur="0.4s" repeatCount="indefinite" /><line x1="0" y1="0" x2="0" y2="12" stroke="#f9e2af" stroke-width="3.5" stroke-linecap="round" /></g></g>
-        <g transform="translate(4, 16)"><g><animateTransform attributeName="transform" type="rotate" values="-18 0 0; 18 0 0; -18 0 0" dur="0.4s" repeatCount="indefinite" /><line x1="0" y1="0" x2="0" y2="12" stroke="#fab387" stroke-width="3.5" stroke-linecap="round" /></g></g>
-        <g transform="translate(10, 16)"><g><animateTransform attributeName="transform" type="rotate" values="18 0 0; -18 0 0; 18 0 0" dur="0.4s" repeatCount="indefinite" /><line x1="0" y1="0" x2="0" y2="12" stroke="#f9e2af" stroke-width="3.5" stroke-linecap="round" /></g></g>
-
-        <!-- Body -->
-        <ellipse cx="0" cy="10" rx="15" ry="10" fill="#fab387" />
-        <ellipse cx="-2" cy="12" rx="8" ry="6" fill="#fff" opacity="0.8" />
-
-        <!-- Head on Left (x = -12, facing left) -->
-        <g transform="translate(-12, 2)">
-          <circle cx="0" cy="0" r="10" fill="#fab387" />
-          <polygon points="-8,-7 -5,-14 -1,-7" fill="#fab387" />
-          <polygon points="0,-7 3,-14 7,-7" fill="#fab387" />
-          <polygon points="-7,-7 -5,-12 -2,-7" fill="#f38ba8" />
-          <polygon points="1,-7 3,-12 6,-7" fill="#f38ba8" />
-          <path d="M -6 -1 Q -4 -4 -2 -1" stroke="#11111b" stroke-width="1.5" fill="none" />
-          <circle cx="-5" cy="-2" r="0.5" fill="#11111b" />
-          <circle cx="-3" cy="-1" r="1.5" fill="#11111b" />
-          <circle cx="-3.5" cy="-1.5" r="0.5" fill="#fff" />
-          <circle cx="-5" cy="3" r="2" fill="#f38ba8" opacity="0.5" />
-          <circle cx="4" cy="3" r="2" fill="#f38ba8" opacity="0.5" />
         </g>
       </g>
     </g>
